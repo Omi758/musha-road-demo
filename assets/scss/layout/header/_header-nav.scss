@@ -1,0 +1,83 @@
+@use "../../global" as g;
+
+/*!
+layout > header > header-nav
+------------------------------
+*/
+.header-nav {
+  background-color: var(--color-bg-primary);
+  color: var(--color-font-white);
+  font-weight: bold;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.header-list {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.header-list > li {
+  white-space: nowrap;
+  font-size: 12px;
+
+  @include g.mq() {
+    font-size: 14px;
+  }
+
+  &:not(:first-child) {
+    border-left: 1px solid var(--color-border-white);
+    padding-left: 16px;
+  }
+
+  &:not(:last-child) {
+    padding-right: 16px;
+  }
+}
+
+// /* ヘッダーメニューの中で、現在表示中のページのリンクだけ強調表示する */
+// .header-list .current-menu-item > a {
+//   text-decoration: underline;
+// }
+/* ================================
+   Header Nav 下線アニメーション
+   ================================ */
+
+/* 基本のリンク */
+.header-list > li > a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+/* 下線のベース */
+.header-list > li > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px; /* 線の太さ */
+  width: 0;
+  background-color: var(--color-font-white);
+  transition: width 0.3s ease;
+}
+
+/* ホバー時：左→右に線が伸びる */
+.header-list > li > a:hover::after {
+  width: 100%;
+}
+
+/* アクティブ時（現在ページ）の文字を薄くする */
+.header-list .current-menu-item > a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header-list .current-menu-item > a::after {
+  width: 0;
+}

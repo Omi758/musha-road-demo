@@ -1,0 +1,149 @@
+@use "../../global" as g;
+
+/*!
+layout > header > header-head
+------------------------------
+*/
+.header-head-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+
+  @include g.mq() {
+    height: 75px;
+  }
+}
+
+.header-logo {
+  width: 180px;
+
+  @include g.mq(mi) {
+    width: 320px;
+  }
+}
+
+.header-search {
+  margin-left: auto;
+  margin-right: 12px;
+  @include g.mq(mi) {
+    margin-right: 24px;
+  }
+}
+.header-search-open-button {
+  text-decoration: underline;
+}
+.header-modal-bg {
+  content: "";
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0; // 初期設定は透明
+  z-index: var(--z-index-modal);
+}
+
+.header-search-modal {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  z-index: var(--z-index-modal);
+}
+
+//モーダルの背景
+.header-search-modal::backdrop {
+  background-color: transparent;
+}
+
+.header-modal-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-modal-contents {
+  //position: fixed;は不要_dialogタグはshowModal()で開くと自動的に固定配置になる
+  background-color: var(--color-bg-white);
+  position: relative;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0; // アニメーション用初期設定
+  gap: 10px;
+}
+.header-close-button {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  right: 10px;
+  top: 10px;
+  background-color: var(--color-bg-gray-light);
+}
+
+.header-close-button::before,
+.header-close-button::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: var(--color-bg-black);
+}
+
+.header-close-button::before {
+  transform: rotate(45deg);
+}
+
+.header-close-button::after {
+  transform: rotate(-45deg);
+}
+
+.header-modal-text {
+  font-weight: bold;
+}
+
+.header-search-form {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 6px;
+}
+
+.header-search-form input {
+  padding: 0 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--color-border-gray) inset;
+  outline: 0; /* focusの見た目を変えるためにリセットとして入れる */
+}
+
+.header-search-form input:focus {
+  box-shadow: 0 0 0 2px var(--color-border-focus) inset;
+}
+
+.header-search-button {
+  background-color: var(--color-bg-black);
+  color: var(--color-font-white);
+  height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  letter-spacing: 0.1em;
+  padding-left: 0.1em;
+}

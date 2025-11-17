@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/*!
+global > color
+------------------------------
+*/
+/* wpデフォルトのフォントが強い為、より具体的なセレクタでフォントを指定 */
+.editor-styles-wrapper,
+.editor-styles-wrapper *,
+.editor-styles-wrapper p,
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-styles-wrapper li,
+.editor-styles-wrapper div,
+.editor-styles-wrapper span {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", "Meiryo", sans-serif !important;
+}
+
+.editor-styles-wrapper {
+  --color-bg-black: #000000;
+  --color-border-primary: #c5ab5f;
+  --color-font-base: #000000;
+  --color-font-white: #ffffff;
+}
+
+/*! level1 */
+.editor-styles-wrapper h1 {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/*!
+page > single > single
+------------------------------
+*/
+
+.editor-styles-wrapper img {
+  margin-top: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/*!
+page > single > single-contents
+------------------------------
+*/
+.editor-styles-wrapper h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 80px 0px 24px;
+  background-color: var(--color-bg-black);
+  color: var(--color-font-white);
+  padding: 10px 8px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+.editor-styles-wrapper h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 40px 0px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--color-border-primary);
+  padding-left: 36px;
+  padding-bottom: 6px;
+  line-height: 1.6;
+}
+
+.editor-styles-wrapper h3::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 18px;
+  left: 0;
+  transform: translateY(-50%);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../img/icon-mosha.png);
+}
+/* Gutenbergブロックエディタ内のリスト余白を揃える */
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+  margin-left: 0;
+  padding-left: 24px;
+}
+
+.editor-styles-wrapper blockquote {
+  background-color: #f3f3f3;
+  padding: 16px;
+  color: #666;
+  border-radius: 12px;
+  margin: 32px auto;
+}
+
+/* 画像のデフォルト角丸を無効化 */
+.editor-styles-wrapper .wp-block-image img {
+  border-radius: 0 !important;
+}
+
+.editor-styles-wrapper a {
+  color: #333;
+}

@@ -1,0 +1,10 @@
+{
+  "name": "mushaenomichi",
+  "version": "1.0.0",
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  },
+  "scripts": {
+    "dev": "browser-sync start --proxy http://mushaenomichi.local --files \"**/*.php\" \"**/*.css\" \"**/*.js\" --no-notify --no-open"
+  }
+}

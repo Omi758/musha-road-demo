@@ -1,0 +1,22 @@
+@use "../global" as g;
+
+/*!
+component > breadcrumb
+------------------------------
+*/
+.c-breadcrumb {
+  background-color: var(--color-bg-primary);
+  padding: 8px 0;
+  color: var(--color-font-white);
+}
+
+.c-breadcrumb_inner {
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.c-breadcrumb_inner a {
+  text-decoration: underline;
+}

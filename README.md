@@ -1,6 +1,6 @@
-# 🧩 Matsuyama Clinic – Web Coding Demo（架空サイト）
+# 🧩 MediaSite 武者への道 – Web Coding Demo（架空サイト）
 
-![musha-road-demo demo-site](/assets/img/musha-road_git_screenshot.webp "musha-road-demo demo-site")
+![road-to-musha demo-site](assets/img/musha-road_git_screenshot.webp "road-to-musha demo-site")
 
 ## 🔗 Demo
 
@@ -11,19 +11,16 @@
 
 ## 📝 Overview（概要）
 
-HelloMentor 課題で制作した医療系クリニックの架空リクルーティングサイト（静的コーディング）です。
+HelloMentor 課題として制作した **メディア系 Web サイト**です。  
+**WordPress テーマとして PHP 化**し、メディア運用を想定した機能を実装しています。
 
-- リキッドレイアウトを採用
-
-- BEM に基づく CSS 設計で保守性の高いコーディング
-
-- GSAP を使用したハンバーガーメニューのモーダルアニメーション
-
-- レスポンシブ対応（SP / PC）
-
-- UI/UX を意識したアニメーション・ボタンデザイン
-
-- 実務を想定して「読みやすさ・保守性・再利用性」を重視した構成
+- WordPress 環境構築（Local）
+- PHP によるテンプレート化・記事ループ・検索ロジックの実装
+- 記事のキーワード検索機能を実装
+- カテゴリ内おすすめ記事（最大 6 件）のランダム表示
+- トップページのおすすめ記事を管理画面から変更可能
+- 必要なプラグイン導入による CMS の最適化
+- BEM に基づく CSS 設計 + SCSS 運用
 
 &nbsp;
 
@@ -33,33 +30,40 @@ HelloMentor 課題で制作した医療系クリニックの架空リクルー�
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" alt="HTML5" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" alt="CSS3" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width="40" alt="SCSS" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black" width="60" alt="GSAP" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" width="50" alt="WordPress" />
-   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="50" alt="PHP" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript" >
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" width="40" alt="WordPress" />
+   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="40" alt="PHP" />
 </p>
 
 &nbsp;
 
 ## ✨ Features（制作ポイント）
 
-### 1. ハンバーガーメニューを GSAP でアニメーション
+### 1. WordPress テーマ化
 
-- モーダルのフェードイン・フェードアウト
-- ユーザー操作に応じた閉じ処理（クリック・リンク選択・エスケープキー押下 等）
+- テンプレート階層に沿って front-page.php / single.php / page.php / 404.php 等を構成
+- loop や条件分岐を用いた記事一覧・記事詳細の出力
+- search.php による検索結果ページの作成
 
-### 2. BEM ベースの CSS 設計 と 保守性の高い ES Modules を採用した構成
+### 2. カテゴリ内おすすめ記事（最大 6 件）のランダム表示
 
-- 読みやすい class 命名と SCSS のファイル分割
-- ES Modules を使用してスクリプトの保守性を向上
+- 閲覧中の記事のカテゴリを取得
+- 同一カテゴリからランダムに 6 件抽出し表示
+- メディアサイト運用を想定した設計
 
-### 3. レスポンシブ対応
+### 3. 管理画面の操作性を改善（CMS 最適化）
 
-- SP / PC 双方で閲覧性を意識した余白・タイポグラフィ調整
+- トップページの「おすすめ記事」を管理画面から変更可能
+- 実務を想定し必要なプラグインを導入
 
-### 4. CSS アニメーションを使用した UI 効果
+### 4. 基本機能の整備
 
-- ホバー時のボタンアニメーション
+- パンくずリスト
+- 記事検索
+- Contact Form 7 による問い合わせ対応
+- SEO SIMPLE PACK によるメタ設定
+- 投稿記事のフロントとエディターの見た目を統一
+- レスポンシブ対応（SP・PC）
 
   &nbsp;
 
@@ -67,24 +71,43 @@ HelloMentor 課題で制作した医療系クリニックの架空リクルー�
 
 ```text
 .
-└── index.html
-    ├── css
-    │   └── style.css
-    │   └── style.css.map
-    ├── img
-    ├── js
-    │   └── main.js
-    │   └── component
-    │   │   └── hamburgermenu.js
-    │   │   └── smoothscroll.js
-    │   └── utility
-    │       └── viewport.js
-    └── scss
-        ├── component
-        ├── foundation
-        ├── global
-        ├── layout
-        ├── page
-        ├── utility
-        └── style.scss
+├── 404.php
+├── footer.php
+├── front-page.php
+├── functions.php
+├── header.php
+├── index.php
+├── page.php
+├── search.php
+├── single.php
+├── style.css
+├── assets
+│   ├── css
+│   │   ├── editor-style.css
+│   │   ├── main.css
+│   │   └── main.css.map
+│   ├── img
+│   ├── js
+│   │   └── main.js
+│   └── scss
+├── template-parts
+│   ├── breadcrumb.php
+│   └── loop-article.php
+
 ```
+
+## 💻 Development Environment（開発環境）
+
+- Local by Flywheel（WordPress）
+- VSCode / GitHub Copilot / Gemini Code Assist
+- SCSS / Live Sass Compiler
+- ES Modules
+- ホットリロード環境（node_modules / BrowserSync）
+
+&nbsp;
+
+## ⚠️ Notes（注意事項）
+
+- 本テーマは学習用に制作しています。
+
+&nbsp;

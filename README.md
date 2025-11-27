@@ -4,7 +4,7 @@
 
 ## 🔗 Demo
 
-（仮想 URL）
+【 URL 】
 [https://musha-road.omiportfolio.com/](https://musha-road.omiportfolio.com/)
 
 &nbsp;

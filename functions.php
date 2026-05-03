@@ -29,7 +29,7 @@ function mushaenomichi_enqueue_scripts() {
     wp_enqueue_script(
         "mushaenomichi-main",
         get_template_directory_uri(). "/assets/js/main.js",
-        array(), //依存関係(jQueryに依存する場合は array("jquery")を指定)
+        array(),
         "1.0.1", //バージョン番号（キャッシュ対策で更新）
         true //footerで読み込む（true = </body>直前、false = <head>内）
     );

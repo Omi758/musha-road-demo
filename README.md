@@ -11,7 +11,7 @@
 
 ## 📝 Overview（概要）
 
-HelloMentor 課題として制作した **メディア系 Web サイト**です。  
+HelloMentor 課題として制作した **メディア系 Web サイト**です。
 **WordPress テーマとして PHP 化**し、メディア運用を想定した機能を実装しています。
 
 - WordPress 環境構築（Local）
@@ -63,7 +63,6 @@ HelloMentor 課題として制作した **メディア系 Web サイト**です�
 - Contact Form 7 による問い合わせ対応
 - SEO SIMPLE PACK によるメタ設定
 - 投稿記事のフロントとエディターの見た目を統一
-- レスポンシブ対応（SP・PC）
 
   &nbsp;
 
